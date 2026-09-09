@@ -1,11 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Compus</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     
+    <form action="enviar" method="post" id="submit"> 
+        <div class="control-formulario">
+            <label for="TC">Tipo de computadora</label>
+            <select name="compu" id="TC" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="All in One">All in One</option>
+                <option value="Escritorio">Escritorio</option>
+                <option value="Netbook">Netbook</option>
+                <option value="Servidor">Servidor</option>
+            </select>
+        </div>
+
+        <div class="control-formulario">
+            <label for="dueno">Nombre del dueño</label>
+            <input type="text" id="dueno" name="dueno" required>
+        </div>
+
+        <div class="control-formulario">
+            <label for="marca">Marca de la compu</label>
+            <input type="text" id="marca" name="marca" required>
+        </div>
+
+        <!-- Grupo Procesador -->
+        <div class="control-formulario">
+            <label>Procesador (Marca y Generación)</label>
+            <div class="grupo-campo">
+                <input type="text" id="procesador" name="procesador" placeholder="Ej: Intel, AMD" required> 
+                <select name="gen" id="gen" required>
+                    <option value="" disabled selected>Generación</option>
+                    <option value="i3">i3</option>
+                    <option value="Ryzen 3">Ryzen 3</option>
+                    <option value="i5">i5</option>
+                    <option value="Ryzen 5">Ryzen 5</option>
+                    <option value="i7">i7</option>
+                    <option value="Ryzen 7">Ryzen 7</option>
+                    <option value="i9">i9</option>
+                    <option value="Ryzen 9">Ryzen 9</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Grupo Memoria RAM -->
+        <div class="control-formulario">
+            <label>Memoria RAM (Cantidad y Tipo)</label>
+            <div class="grupo-campo">
+                <input type="number" id="cram" name="cram" placeholder="Ej: 16" required>
+                <select name="TRAM" id="TRAM" required>
+                    <option value="" disabled selected>Tipo</option>
+                    <option value="DDR2">DDR2</option>
+                    <option value="DDR3">DDR3</option>
+                    <option value="DDR4">DDR4</option>
+                    <option value="DDR5">DDR5</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Grupo Almacenamiento -->
+        <div class="control-formulario">
+            <label>Almacenamiento (Capacidad y Tipo)</label>
+            <div class="grupo-campo">
+                <input type="number" id="Cdisco" name="cadisco" placeholder="Ej: 480" required>
+                <select name="tdisco" id="tipodisco" required>
+                    <option value="" disabled selected>Tipo de disco</option>
+                    <option value="SSD">SSD</option>
+                    <option value="HDD">HDD</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Grupo Tarjeta Gráfica -->
+        <div class="control-formulario">
+            <label>Tarjeta Gráfica (Modelo y Tipo)</label>
+            <div class="grupo-campo">
+                <input type="text" name="MGPU" id="MGPU" placeholder="Ej: GTX 1650 / Radeon">
+                <select name="TGPU" id="TGPU" required>
+                    <option value="" disabled selected>Tipo GPU</option>
+                    <option value="integrada">Integrada</option>
+                    <option value="dedicada">Dedicada</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="control-formulario">
+            <label for="pantalla">Tamaño del monitor/pantalla (pulgadas)</label>
+            <input type="number" name="pantalla" id="pantalla" placeholder="Ej: 15.6" required>
+        </div>
+        
+        <button type="submit">Agregar</button>
+    </form>
+    
+    <div class="seccion-busqueda">
+        <label for="busqueda">Busque por Marca o por Dueño</label>
+        <input type="text" id="busqueda" placeholder="Escriba para filtrar...">
+    </div>
+
+    <div id="contenedor"></div>
+
+    <script src="Script.js"></script>
 </body>
 </html>
