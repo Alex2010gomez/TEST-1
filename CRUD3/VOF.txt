@@ -1,0 +1,21 @@
+1. En Python, al definir los atributos de una clase dentro del método __init__, estos se
+vuelven estrictamente privados por defecto, y es imposible que otra parte del código
+acceda a ellos a menos que se use la librería externa 'private_mode'.
+Respuesta: Falso , solo se vuelven privados si se marcan con _ _ 
+Justificación (solo si es Falsa):
+2. El método __init__ actúa como el constructor principal de la clase, siendo el momento
+exacto en donde ocurre la operación 'CREATE' (instanciación) en la memoria RAM cada
+vez que damos vida a un nuevo objeto.
+
+Respuesta: _V_
+Justificación (solo si es Falsa):
+3. El pilar de la herencia nos obliga a que las clases hijas (ej: Alumno) tengan
+exactamente los mismos métodos y atributos que la clase padre (ej: Persona),
+impidiendo que se agreguen nuevos comportamientos específicos.
+Respuesta: Falso , Herencia nos permite imitar y expandir comportamientos
+Justificación (solo si es Falsa):
+4. El polimorfismo nos permite que distintas clases posean un método con el mismo
+nombre (ej: calcular_promedio()), permitiendo que cada clase hija implemente la lógica
+matemática interna de dicho método a su propia manera.
+Respuesta: _V
+Justificación (solo si es Falsa):
