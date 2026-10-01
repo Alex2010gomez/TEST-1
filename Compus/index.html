@@ -6,11 +6,10 @@
     <title>Compus</title>
     <link rel="stylesheet" href="Style.css">
 </head>
-
+<button id="toggleTema">🌓 Cambiar Tema</button>
 
 <body>
-    <button id="toggleTema">🌓 Cambiar Tema</button>
-
+    
     <form action="enviar" method="post" id="submit"> 
         <div class="control-formulario">
             <label for="TC">Tipo de computadora</label>
@@ -33,6 +32,7 @@
             <input type="text" id="marca" name="marca" required>
         </div>
 
+        <!-- Grupo Procesador -->
         <div class="control-formulario">
             <label>Procesador (Marca y Generación)</label>
             <div class="grupo-campo">
@@ -51,6 +51,7 @@
             </div>
         </div>
 
+        <!-- Grupo Memoria RAM -->
         <div class="control-formulario">
             <label>Memoria RAM (Cantidad y Tipo)</label>
             <div class="grupo-campo">
@@ -65,6 +66,7 @@
             </div>
         </div>
 
+        <!-- Grupo Almacenamiento -->
         <div class="control-formulario">
             <label>Almacenamiento (Capacidad y Tipo)</label>
             <div class="grupo-campo">
@@ -77,6 +79,7 @@
             </div>
         </div>
 
+        <!-- Grupo Tarjeta Gráfica -->
         <div class="control-formulario">
             <label>Tarjeta Gráfica (Modelo y Tipo)</label>
             <div class="grupo-campo">
@@ -121,7 +124,7 @@
     <button id="exportar">Exportar JSON</button>
     <input type="file" id="importar" accept=".json">
 
-    <div id="contenedor"></div>7
+    <div id="contenedor"></div>
 
     <script src="Script.js"></script>
 </body>

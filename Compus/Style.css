@@ -3,7 +3,7 @@
   --bg-p: #1e222b; --bg-t: #282c34; --bg-i: #21252b; --txt-p: #abb2bf; --txt-t: #fff;
   --acento: #4b96ff; --danger: rgba(255, 85, 85, 0.4); --bordes: #3e4451;
 }
-.light-mode { 
+.light-mode { /* Si usas modo claro, solo cambias estas variables */
   --bg-p: #c6cbd7; --bg-t: #ced2db; --bg-i: #ced2db; --txt-p: #010716; --txt-t: #070a12; --bordes: #5c6578;
 }
 

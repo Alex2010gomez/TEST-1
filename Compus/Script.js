@@ -4,19 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const busquedaInput = document.getElementById("busqueda");
   const filtroEstado = document.getElementById("filtroEstado");
   const contadoresContainer = document.getElementById("contadores");
-  const Export = document.getElementById("exportar");
-  const importado = document.getElementById("importar");
+  const btnExportar = document.getElementById("exportar");
+  const btnImportar = document.getElementById("importar");
 
   let computadoras = JSON.parse(localStorage.getItem("compus")) || [];
   let indiceEditando = null;
 
   renderizarcomputadoras(computadoras);
 
-  // Los filtros se escuchan en tiempo real 
+  // Escuchar filtros en tiempo real
   if (busquedaInput) busquedaInput.addEventListener("input", filtrarYBuscar);
   if (filtroEstado) filtroEstado.addEventListener("change", filtrarYBuscar);
 
-  // Evento de guardado y editado 
+  // Evento Guardar / Editar
   formulario.addEventListener('submit', function (e) {
     e.preventDefault();
     const nuevacompu = {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       marcagpu: document.getElementById("MGPU").value,
       tipogpu: document.getElementById("TGPU").value,
       screen: document.getElementById("pantalla").value,
-      status: document.getElementById("estado").value 
+      status: document.getElementById("estado").value // NUEVA PROPIEDAD: Estado
     };
 
     if (indiceEditando !== null) {
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tarjetacompu.innerHTML = `
         <h3>${compu.brand}</h3>
         <p>ID : ${indice + 1}</p>
-        <p>Estado: ${compu.status || 'Operativo'}</p>
+        <p>Estado: <strong>${compu.status || 'Operativo'}</strong></p>
         <p>Tipo de computadora : ${compu.typecom}</p>
         <p>Dueño: ${compu.property}</p>
         <p>Marca del Procesador : ${compu.processor} </p>
@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formulario.scrollIntoView({ behavior: 'smooth' });
   }
 
+  // NUEVA FUNCIÓN: Combina Búsqueda por texto y Filtro de estado
   function filtrarYBuscar() {
     const texto = busquedaInput ? busquedaInput.value.toLowerCase() : "";
     const estado = filtroEstado ? filtroEstado.value : "Todos";
@@ -118,23 +119,26 @@ document.addEventListener("DOMContentLoaded", () => {
     renderizarcomputadoras(resultados);
   }
 
+  // NUEVA FUNCIÓN: Calcula y muestra los contadores dinámicamente
   function actualizarContadores() {
     if (!contadoresContainer) return;
     const conteo = { Total: computadoras.length, Operativo: 0, "En reparación": 0, Descartado: 0 };
     computadoras.forEach(c => conteo[c.status || "Operativo"]++);
     
     contadoresContainer.innerHTML = Object.entries(conteo)
-      .map(([key, val]) => `<span>${key}: ${val}</span>`)
+      .map(([key, val]) => `<span><strong>${key}:</strong> ${val}</span>`)
       .join(" | ");
   }
 
+  // NUEVA FUNCIÓN: Helper para ahorrar líneas al actualizar localStorage y vista
   function actualizarDatos(nuevosDatos) {
     localStorage.setItem("compus", JSON.stringify(nuevosDatos));
     renderizarcomputadoras(nuevosDatos);
   }
 
-  if (Export) {
-    Export.addEventListener("click", () => {
+  // NUEVAS FUNCIONES: Exportación e Importación JSON
+  if (btnExportar) {
+    btnExportar.addEventListener("click", () => {
       const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(computadoras, null, 2));
       const dlAnchorElem = document.createElement('a');
       dlAnchorElem.setAttribute("href", dataStr);
@@ -143,8 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (importado) {
-    importado.addEventListener("change", (e) => {
+  if (btnImportar) {
+    btnImportar.addEventListener("change", (e) => {
       const archivo = e.target.files[0];
       if (!archivo) return;
       const lector = new FileReader();
