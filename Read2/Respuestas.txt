@@ -1,0 +1,15 @@
+1.
+ A) Se aplico filtro y busqueda
+ B) Busqueda y filtro 
+ C) Filtro
+ D) Busqueda
+ E) Filtros y busqueda 
+ F) Busqueda y filtros
+2. 
+ Porque las condiciones son solo para leer elementos  que cumplan condiciones especificas
+3. 
+ Que evita variables de almacenado inecesarias porque corta el bucle para devolver la coincidencia 
+4. 
+ Un codigo por filtros no devuelve un solo resultado sino que devuelve coincidencias mientras que una busqueda por codigo devuelve solo una , el elemento con ese codigo
+5. 
+ Aporto la posibilidad de tratar cada elemento como un objeto manipulable y no como un diccionario ademas de permitir que cada objeto tenga un metodo de auto filtrado  
