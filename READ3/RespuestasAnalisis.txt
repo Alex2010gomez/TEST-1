@@ -1,0 +1,16 @@
+1) ¿Qué representa cada objeto dentro de estos sistemas?
+Representa un registro creado 
+2) ¿Qué diferencia existe entre buscar un único objeto y filtrar varios objetos?
+Filtrar por varios obejtos es para cuando se busca algo sin ser exacto mientras que cuando buscamos por obejto unico por lo general es exacto como por ejemplo buscar por un codigo
+3) ¿Qué ventaja aporta return cuando se busca un objeto por código, número u orden?
+Que detiene la busqueda en cuanto se halla la coinciencia
+4) ¿Qué función cumple una lista de objetos durante una operación READ?
+Cumple la funcion de ser el contenedor en el cual se busca un registro 
+5) ¿Qué ventaja tiene colocar ciertas consultas dentro de métodos de la clase?
+Nos permite ahorrar codigo a la hora de intentar ver o realizar ciertas comprobaciones 
+6) ¿Por qué los ejercicios realizados siguen siendo READ aunque utilicen clases, métodos,
+funciones, for e if?
+Porque no se modifican los registros ,solo se filtra y busca entre ellos 
+7) ¿Qué diferencia observás entre consultar registros representados con diccionarios y
+consultar objetos?
+Que con clases nos podemos permitir integrar funciones en los objetos(registros) lo cual a veces ahorra bastante codigo 
